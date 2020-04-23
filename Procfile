@@ -1,1 +1,1 @@
-web: gunicorn headers.wsgi:application --preload
+web: gunicorn url_shortener.wsgi:application --preload
