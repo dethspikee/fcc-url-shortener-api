@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+</style>
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-4">URL Shortener API</h1>
+    <h4 class="h4">This is a homepage for URL Shortener project that can be found on freeCodeCamp</h3>
+      <p>Please make sure to inlude URL scheme (http|https)</p>
+      <p>Example:</p>
+      <a href="/api/shorturl/1">/api/shorturl/1</a>
+      <p>Will redirect to: www.google.com</p>
+      <hr class="my-4">
+      <form class="form-inline" method="POST" action="/api/shorturl/new">
+        {% csrf_token %}
+        <div class="form-group mx-sm-3 mb-2">
+          <label for="inputPassword2" class="mr-3">{{form.url.label}}</label>
+          {{ form.url }}
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">POST URL</button>
+      </form>
+  </div>
+</div>
+{% endblock content %}
